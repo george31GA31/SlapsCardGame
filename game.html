@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Spit - Playing</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-board">
+        <div class="row" id="ai-layout">
+            </div>
+
+        <div class="center-area">
+            <div class="pile-group">
+                <div class="spit-deck" id="spit-deck-1"></div>
+                <div class="card-slot" id="center-1"></div>
+            </div>
+            
+            <button id="spit-btn" onclick="spitBoth()">SPIT!</button>
+
+            <div class="pile-group">
+                <div class="spit-deck" id="spit-deck-2"></div>
+                <div class="card-slot" id="center-2"></div>
+            </div>
+        </div>
+
+        <div class="row" id="player-layout">
+            </div>
+        
+        <div style="margin-bottom: 10px;">
+            <p id="status-text">Click a card to play. Click "SPIT!" if stuck.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>
