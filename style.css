@@ -1,60 +1,128 @@
-/* Global Styles */
+:root {
+    --table-green: #2d5a27;
+    --card-white: #f5f5f5;
+    --highlight: #ffeb3b;
+}
+
 body {
-    background-color: #1a4a1a; /* Poker table green */
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: var(--table-green);
     color: white;
-    font-family: 'Arial', sans-serif;
+    overflow: hidden; /* Prevent scrolling on game page */
+    text-align: center;
+}
+
+/* Menus */
+.container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
-    margin: 0;
 }
 
-.menu-box {
-    background: rgba(0,0,0,0.6);
+.box {
+    background: rgba(0,0,0,0.5);
     padding: 40px;
-    border-radius: 15px;
-    text-align: center;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
 }
 
 button {
     background: #e67e22;
-    border: none;
-    padding: 15px 30px;
     color: white;
+    border: none;
+    padding: 12px 24px;
     font-size: 1.2rem;
-    border-radius: 5px;
+    border-radius: 4px;
     cursor: pointer;
-    transition: 0.3s;
+    margin-top: 15px;
 }
-
 button:hover { background: #d35400; }
 
-/* Card Styling */
-.card-area { display: flex; gap: 10px; margin: 20px; }
-
-.card {
-    width: 60px;
-    height: 90px;
-    background: white;
-    color: black;
-    border-radius: 5px;
+/* Game Board */
+#game-board {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    font-size: 1.2rem;
-    border: 2px solid #333;
-    cursor: pointer;
-    user-select: none;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: space-between;
+    padding: 10px;
 }
 
-.center-pile {
-    border: 3px dashed rgba(255,255,255,0.5);
-    background: transparent;
-    color: white;
-    width: 80px;
-    height: 110px;
+.row {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding: 10px;
+    min-height: 120px;
+}
+
+/* Cards */
+.card-slot {
+    width: 70px;
+    height: 100px;
+    border: 2px dashed rgba(255,255,255,0.3);
+    border-radius: 6px;
+    position: relative;
+}
+
+.card {
+    width: 70px;
+    height: 100px;
+    background-color: var(--card-white);
+    color: black;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border: 1px solid #999;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    cursor: pointer;
+    position: absolute; /* Allows stacking */
+    top: 0; left: 0;
+}
+
+.card.face-down {
+    background: repeating-linear-gradient(
+        45deg,
+        #606dbc,
+        #606dbc 10px,
+        #465298 10px,
+        #465298 20px
+    );
+    color: transparent;
+    cursor: default;
+}
+
+.card.selected {
+    border: 3px solid var(--highlight);
+    transform: translateY(-10px);
+}
+
+/* Center Area */
+.center-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    background: rgba(0,0,0,0.1);
+    padding: 20px 0;
+}
+
+.pile-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.spit-deck {
+    width: 50px;
+    height: 70px;
+    background: #444;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    border: 1px solid white;
 }
